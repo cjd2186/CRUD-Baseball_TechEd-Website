@@ -1,0 +1,44 @@
+.blue-border{
+    border: solid 6px #007FFF;
+}
+
+.black-border{
+    border: solid 2px black;
+}
+
+.spacer{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.spacer2{
+    margin-left: 10px;
+    margin-right: 0px;
+    margin-top: 10px;
+}
+
+.spacer3{
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.red-base{
+    background-color: #D16D6A;
+}
+
+.orange-base{
+    background-color: #ECB976;
+}
+
+.yellow-base{
+    background-color: #F9DA78;
+}
+
+.green-base{
+    background-color: #9DC384;
+}
+
+.teal-base{
+    background-color: #80A4AE;
+}

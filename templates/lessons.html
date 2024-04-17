@@ -1,12 +1,45 @@
 {% extends "layout.html" %}
 {% block content %}
 <html>
-<title>Edit Player</title>
+<title>Pitches</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lessons.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/lessons.js') }}"></script>
+
 <head>
 </head>
 <body>
-    <div>
-        hello
+    <div class="container-fluid">
+        <h1 class="text-center"> Click a Pitch to Learn More About It!</h1>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class= "col-4 blue-border spacer2">
+                (Fastballs)
+            </div>
+            <div class= "col-6 blue-border spacer3">
+                (Breaking Balls)
+            </div>
+            <div class="col-1"></div>
+        </div>
+        
+        <!-- Labels row -->
+        <div class="row">
+            <div class="col-1"></div>
+            {% for pitch in pitches %}
+            <div class="col-2 black-border spacer {{ pitch.color }}">{{ pitch.name }} <br><br> </div>
+            {% endfor %}
+            <div class="col-1"></div>
+        </div>
+
+        <!-- Images row -->
+        <div class="row">
+            <div class="col-1"></div>
+            {% for pitch in pitches %}
+            <div class="col-2 black-border spacer clickable">
+                <img onclick="goToPage('{{ url_for('pitch', pitch_name=pitch.path) }}')" src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="190">
+            </div>
+            {% endfor %}
+            <div class="col-1"></div>
+        </div>
     </div>
 </body>
 </html>
