@@ -1,44 +1,40 @@
 {% extends "layout.html" %}
 
-{% block content %}
+{% block title %}
+    How to Identify Pitches
+{% endblock %}
 
-<html>
-    <head>
-        <title> How to Identify Pitches</title>
-        <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
-        <script>
-            let data = {{data|tojson}} 
-        </script>
-    </head>
-    <body>
+{% block head %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script>
+        let data = {{ data|tojson|safe }};
+    </script>
+{% endblock %}
+
+{% block content %}
     <div id="container-fluid" class="lgray-base blue-border">
-        <!--There should be a conceptual group whose goal is 
-        to indicate the purpose and the audience for the site. 
-        Consider using a title, an image, and some descriptive text.-->
         <h1>Welcome to the <span style="color: red;">GAS</span> Station, where we will teach you how to identify different pitches in baseball!</h1>
         <br>
         <div class="lgray-base blue-border2">
             <div class="row">
-                <div class ="col 12" id="home-img">
+                <div class="col-12" id="home-img">
                     <img src="https://static.gigapan.com/gigapans0/127025/images/127025-900x245.jpg" alt="MLB stadium" width="1100"> 
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class ="col 6 blue-border3" id="pitch-diagram">
+            <div class="col-6 blue-border3" id="pitch-diagram">
                 Learn Each Pitch:
                 <span class="clickable">
-                    <img onclick= "goToPage('/lessons')" src="https://cdn.shopify.com/s/files/1/0013/5865/9642/files/001_grande.jpeg?v=1567748868" alt="Pitch Diagrams" width="400">
+                    <img onclick="goToPage('/lessons')" src="https://cdn.shopify.com/s/files/1/0013/5865/9642/files/001_grande.jpeg?v=1567748868" alt="Pitch Diagrams" width="400">
                 </span>
-            </div><br>
-            <div class ="col 6" id="quiz-diagram">
+            </div>
+            <div class="col-6" id="quiz-diagram">
                 Quiz your Knowledge:
                 <span class="clickable">
-                    <img onclick="goToPage('/quizzes')" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.R-3WzLxsMhH8LhQ3uwPlhwHaHd%26pid%3DApi&f=1&ipt=5a267e6045c1f019ba5144ef8d7bde84ba1aa55f8f4bad85ab883a155d4a45cf&ipo=images" alt="Quiz Clipart" width="300"> 
+                    <img onclick="goToPage('/quiz')" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.R-3WzLxsMhH8LhQ3uwPlhwHaHd%26pid%3DApi&f=1&ipt=5a267e6045c1f019ba5144ef8d7bde84ba1aa55f8f4bad85ab883a155d4a45cf&ipo=images" alt="Quiz Clipart" width="300"> 
                 </span>
-            </div><br>
+            </div>
         </div>
     </div> 
-    </body>
-</html>
 {% endblock %}

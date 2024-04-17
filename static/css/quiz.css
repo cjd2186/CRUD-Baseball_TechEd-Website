@@ -1,0 +1,87 @@
+.drag-pitch {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: move;
+}
+
+.droppable-pitch {
+    height: 150px;
+    border: 2px dashed #ccc;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Additional styles for correct/incorrect matching */
+.match-correct {
+    border: 2px solid #28a745; /* Bootstrap success color */
+}
+
+.match-incorrect {
+    border: 2px solid #dc3545; /* Bootstrap danger color */
+}
+.droppable-pitch {
+    height: 150px; /* Adjust as necessary */
+    border: 2px dashed #ccc;
+    margin-bottom: 1rem; /* Spacing between rows on smaller screens */
+  }
+  
+  .droppable-pitch img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain; /* Keeps aspect ratio */
+  }
+  
+  /* Ensure that the pitches are in a single row on larger screens */
+  @media (min-width: 992px) {
+    .droppable-pitch {
+      flex: 0 0 auto;
+      width: 20%; /* 5 boxes in a row */
+    }
+  }
+  
+  /* Draggable pitch name styles */
+  .drag-pitch {
+    cursor: pointer;
+    user-select: none; /* Prevents the user from selecting text on drag */
+    margin: 5px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .bg-success {
+    background-color: #28a745!important; /* Bootstrap success green */
+    border: 2px solid #28a745!important; /* Matching border */
+  }
+  
+  /* Incorrect box style */
+  .bg-danger {
+    background-color: #dc3545!important; /* Bootstrap danger red */
+    border: 2px solid #dc3545!important; /* Matching border */
+  }
+  
+  /* Ensure text color contrasts with the background */
+  .bg-success, .bg-danger {
+    color: #fff;
+  }
+
+  .feedback-text {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Spacing above the feedback text */
+  }
+  
+  /* Text color classes */
+  .text-success {
+    color: #28a745; /* Bootstrap success green */
+  }
+  
+  .text-danger {
+    color: #dc3545; /* Bootstrap danger red */
+  }
