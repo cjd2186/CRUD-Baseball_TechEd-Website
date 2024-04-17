@@ -30,12 +30,12 @@
                      class="compass-icon" alt="Compass icon for dropdown" width="50">
             </label>
             <select name="nav-menu" id="endpoints" onchange="navigateToEndpoint()">
-                <option value="">Select a pitch...</option>
-                <option value="#endpoint1">Four Seam</option>
-                <option value="#endpoint2">Two Seam</option>
-                <option value="#endpoint3">Slider</option>
-                <option value="#endpoint4">Curveball</option>
-                <option value="#endpoint5">Changeup</option>
+                <div class="col-2 black-border spacer clickable">
+                {% for pitch in pitches %}
+                    <option value="{{url_for('pitch', pitch_name=pitch.path) }}">{{pitch.name}}</option>
+                {% endfor %}
+                </div>
+                
             </select>
 
             <!-- Navbar Brand -->
