@@ -1,0 +1,14 @@
+{% include "layout.html" %}
+
+{% block content %}
+<script>console.log("dog") </script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lessons.css') }}">
+
+<script>console.log("{{pitch}}") </script>
+<h1>{{ pitch['name'] }}</h1>
+<img src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="190">
+<p>{{ pitch.description }}</p>
+
+<a href="{{ url_for('pitch', pitch_name=next_pitch.path) }}" class="btn btn-primary {{next_pitch.color}}">Next Pitch</a>
+
+{% endblock %}
