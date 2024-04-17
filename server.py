@@ -19,6 +19,16 @@ def home():
 @app.route('/lessons', methods=['GET', 'POST'])
 def lessons(): 
     return render_template('lessons.html')   
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
 
+@app.route('/part1')
+def part1():
+    return render_template('part1.html')
+
+@app.route('/part2')
+def part2():
+    return render_template('part2.html')
 if __name__ == '__main__':
    app.run(debug = True)
