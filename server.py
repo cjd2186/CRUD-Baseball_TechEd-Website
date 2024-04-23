@@ -6,13 +6,58 @@ from flask import request
 
 app = Flask(__name__)
 
-pitches = [
-    {'name': 'Four-Seam', 'image': 'four-seam.png', 'color': 'red-base', 'path': 'four_seam'},
-    {'name': 'Two-Seam', 'image': 'two-seam.png', 'color': 'orange-base', 'path': 'two_seam'},
-    {'name': 'Slider', 'image': 'slider.png', 'color': 'yellow-base', 'path': 'slider'},
-    {'name': 'Curveball', 'image': 'curveball.png', 'color': 'green-base', 'path': 'curveball'},
-    {'name': 'Changeup', 'image': 'changeup.png', 'color': 'teal-base', 'path': 'changeup'}
-]
+pitches = {
+    'Four-Seam': {
+        'name': 'Four-Seam', 
+        'image': 'four-seam.png', 
+        'video':'https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/v9d87gj1wrapw3wguheu',
+        'color': 'red-base', 
+        'path': 'four_seam',
+        'speed': '85-100 mph',
+        'movement': 'Little to no movement',
+        'short_info':'Fastest, straighest pitch'
+        },
+    'Two-Seam': {
+        'name': 'Two-Seam', 
+        'image': 'two-seam.png', 
+        'video': 'https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/js9aw7pxkaahvncqwvwy',
+        'color': 'orange-base', 
+        'path': 'two_seam',
+        'speed': '80-90 mph',
+        'movement': 'Moves downward, and in',
+        'short_info':'AKA Sinker Ball'
+        },
+    'Slider': {
+        'name': 'Slider', 
+        'image': 'slider.png', 
+        'video': 'https://img.mlbstatic.com/mlb-photos/image/upload/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/fastball/a87c646c-28ba-49ee-a3dd-9dc0fff69235_home.jpg',
+        'color': 'yellow-base', 
+        'path': 'slider',
+        'speed': '80-90 mph',
+        'movement': 'Breaks down and away',
+        'short_info':'Between a fastball and a curve'
+        },
+    'Curveball': {
+        'name': 'Curveball', 
+        'image': 'curveball.png', 
+        'video': 'https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/alqhmlfecizsnakbzmnu',
+        'color': 'green-base', 
+        'path': 'curveball',
+        'speed': '70-80 mph',
+        'movement': 'Moves from top to bottom (clock hands at 12 and 6)',
+        'short_info':'Called 12-6 Curveball'
+        },
+    'Changeup': {
+        'name': 'Changeup', 
+        'image': 'changeup.png', 
+        'video': 'https://img.mlbstatic.com/mlb-photos/image/upload/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/fastball/4c02b11a-bf4f-4789-8a31-c50a44997112_network.jpg',
+        'color': 'teal-base', 
+        'path': 'changeup',
+        'speed': '70-85 mph',
+        'movement': 'Moves slower that a fastball, with a drop at the end',
+        'short_info':'Called fade movement'
+        }
+}
 
 # ROUTES
 data = 0
@@ -25,7 +70,7 @@ def home():
 
 @app.route('/lessons', methods=['GET', 'POST'])
 def lessons(): 
-    return render_template('lessons.html', pitches=pitches)
+    return render_template('lessons.html', data=data)
 
 @app.route('/pitches/<pitch_name>')
 def pitch(pitch_name):
