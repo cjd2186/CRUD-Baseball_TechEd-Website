@@ -2,14 +2,66 @@
 {% include "layout.html" %}
 
 {% block content %}
-<script>console.log("dog") </script>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/lessons.css') }}">
 
-<script>console.log("{{pitch}}") </script>
-<h1>{{ pitch['name'] }}</h1>
-<img src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="190">
-<p>{{ pitch.description }}</p>
+<div class="container-fluid black-border spacer {{ pitch.color }}"><br><br> 
+    <h1 class="black-text">{{ pitch['name'] }}</h1>
+</div>
 
-<a href="{{ url_for('pitch', pitch_name=next_pitch.path) }}" class="btn btn-primary {{next_pitch.color}}">Next Pitch</a>
+<br><br>
+<div class="row">
+    <div class="col-3">
+        <div class="row">
+            <h3 class="black-text">
+                <span class="underline">Speed:</span>
+                <br>
+                <span class="{{ pitch.color}}">
+                    {{pitch.speed}}
+                </span>
+            </h3>
+        </div>
+        <br>
+        <div class="row">
+            <h3 class="black-text">
+                <span class="underline">Movement:</span>
+                <div>
+                    {{pitch.movement}}
+                </div>
+            </h3>
+        </div>
+        <br>
+        <div class="row">
+            <h3 class="black-text bold">
+                <div>
+                    {{pitch.short_info}}
+                </div>
+            </h3>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="row">
+            <video  controls>
+                <source src="{{ url_for('static', filename=video) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <br><br>
+        <div class="row">
+            <a href="{{ url_for('pitch', pitch_name=next_pitch.path) }}" class="btn btn-primary {{next_pitch.color}}">Next Pitch: {{next_pitch.name}}</a>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <h3 class="black-text">
+            Trajectory:
+        </h3>
+        <img src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="300">
+    </div>
+</div>
+
+
+
+
 
 {% endblock %}

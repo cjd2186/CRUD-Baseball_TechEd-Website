@@ -5,7 +5,7 @@
             "image": "four-seam.png",
             "video": "https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/v9d87gj1wrapw3wguheu",
             "color": "red-base",
-            "path": "four_seam",
+            "path": "four-seam",
             "speed": "85-100 mph",
             "movement": "Little to no movement",
             "short_info": "Fastest, straighest pitch"
@@ -15,7 +15,7 @@
             "image": "two-seam.png",
             "video": "https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/js9aw7pxkaahvncqwvwy",
             "color": "orange-base",
-            "path": "two_seam",
+            "path": "two-seam",
             "speed": "80-90 mph",
             "movement": "Moves downward, and in",
             "short_info": "AKA Sinker Ball"

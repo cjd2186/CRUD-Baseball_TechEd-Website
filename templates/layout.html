@@ -24,13 +24,11 @@
 
     {% block head %}{% endblock %}
 </head>
-<body>
+<body class="dkgray-base">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Compass Dropdown -->
             <label for="nav-menu">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Compass_rose_simple.svg" 
-                     class="compass-icon" alt="Compass icon for dropdown" width="50">
             </label>
             <select name="nav-menu" id="endpoints" onchange="navigateToEndpoint()">
                 <div class="col-2 black-border spacer clickable">
@@ -38,7 +36,6 @@
                     <option value="{{url_for('pitch', pitch_name=pitch.path) }}">{{pitch.name}}</option>
                 {% endfor %}
                 </div>
-                
             </select>
 
             <!-- Navbar Brand -->
@@ -47,15 +44,15 @@
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="/part1">Quiz Part 1</a>
-                    <a class="nav-link" href="/part2">Quiz Part 2</a>
+                    <a class="nav-link" href="/part1">Quiz Level 1</a>
+                    <a class="nav-link" href="/part2">Quiz Level 2</a>
                     <!-- <a class="nav-link" href="/quiz3">Quiz Part 3</a> -->
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container lgray-base">
         {% block content %}
         {% endblock %}
     </div>

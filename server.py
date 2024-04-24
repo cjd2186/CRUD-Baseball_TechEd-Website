@@ -8,84 +8,43 @@ import os
 
 app = Flask(__name__)
 
-pitches = {
-    'Four-Seam': {
-        'name': 'Four-Seam', 
-        'image': 'four-seam.png', 
-        'video':'https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/v9d87gj1wrapw3wguheu',
-        'color': 'red-base', 
-        'path': 'four_seam',
-        'speed': '85-100 mph',
-        'movement': 'Little to no movement',
-        'short_info':'Fastest, straighest pitch'
-        },
-    'Two-Seam': {
-        'name': 'Two-Seam', 
-        'image': 'two-seam.png', 
-        'video': 'https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/js9aw7pxkaahvncqwvwy',
-        'color': 'orange-base', 
-        'path': 'two_seam',
-        'speed': '80-90 mph',
-        'movement': 'Moves downward, and in',
-        'short_info':'AKA Sinker Ball'
-        },
-    'Slider': {
-        'name': 'Slider', 
-        'image': 'slider.png', 
-        'video': 'https://img.mlbstatic.com/mlb-photos/image/upload/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/fastball/a87c646c-28ba-49ee-a3dd-9dc0fff69235_home.jpg',
-        'color': 'yellow-base', 
-        'path': 'slider',
-        'speed': '80-90 mph',
-        'movement': 'Breaks down and away',
-        'short_info':'Between a fastball and a curve'
-        },
-    'Curveball': {
-        'name': 'Curveball', 
-        'image': 'curveball.png', 
-        'video': 'https://img.mlbstatic.com/mlb-images/image/private/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/mlb/alqhmlfecizsnakbzmnu',
-        'color': 'green-base', 
-        'path': 'curveball',
-        'speed': '70-80 mph',
-        'movement': 'Moves from top to bottom (clock hands at 12 and 6)',
-        'short_info':'Called 12-6 Curveball'
-        },
-    'Changeup': {
-        'name': 'Changeup', 
-        'image': 'changeup.png', 
-        'video': 'https://img.mlbstatic.com/mlb-photos/image/upload/ar_16:9,g_auto,q_auto:good,w_1024,c_fill,f_jpg,dpr_3.0/fastball/4c02b11a-bf4f-4789-8a31-c50a44997112_network.jpg',
-        'color': 'teal-base', 
-        'path': 'changeup',
-        'speed': '70-85 mph',
-        'movement': 'Moves slower that a fastball, with a drop at the end',
-        'short_info':'Called fade movement'
-        }
-}
-
 # ROUTES
 data = 0
 with open('static/data.json', 'r') as f:
     data = json.load(f)
+    pitches = data['pitches']
     f.close()
+
 @app.route('/')
 def home():
     return render_template('home.html', data=data)   
 
 @app.route('/lessons', methods=['GET', 'POST'])
 def lessons(): 
-    return render_template('lessons.html', data=data)
+    print("here")
+    print(pitches.values())
+    return render_template('lessons.html', pitches=pitches.values())
 
 @app.route('/pitches/<pitch_name>')
 def pitch(pitch_name):
-    for pitch in pitches:
-        if pitch['path'] == pitch_name:
-            pitch_data=pitch
+    # Convert pitches to list to index them
+    pitch_list = list(pitches.values())
+    current_pitch = None
 
-    current_index = next((i for i, p in enumerate(pitches) if p['path'] == pitch_name), None)
-    if current_index is not None:
-        next_index = (current_index + 1) % len(pitches)  # This wraps around to the first pitch
-        next_pitch = pitches[next_index]
-    return render_template('pitch_template.html', pitch=pitches[current_index], next_pitch=next_pitch)
+    # Find the current pitch using 'path'
+    for index, pitch in enumerate(pitch_list):
+        if pitch['path'].lower() == pitch_name.lower():
+            current_pitch = pitch
+            current_index = index
+            break
 
+    # Calculate the next index for cycling through pitches
+    next_index = (current_index + 1) % len(pitch_list)  # Wraps around to the first pitch
+    next_pitch = pitch_list[next_index]
+
+    video_files = os.listdir('static/videos')  # Assuming your videos are stored in 'static/videos'
+    video= ['videos/' + file for file in video_files if file.endswith('.mp4') and current_pitch['name'] + "_1" in file][0].strip("'")
+    return render_template('pitch_template.html', pitch=current_pitch, next_pitch=next_pitch, video=video)
 
 
 @app.route('/quiz')
