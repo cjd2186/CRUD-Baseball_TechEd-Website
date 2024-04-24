@@ -1,3 +1,4 @@
+// drag_and_drop.js
 $(document).ready(function () {
     var score = 0;
     var totalPitches = $('.drag-pitch').length;

@@ -1,8 +1,10 @@
+#server.py
 import json
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
 from flask import request
+import os
 
 app = Flask(__name__)
 
@@ -95,7 +97,11 @@ def part1():
     return render_template('part1.html')
 
 @app.route('/part2')
-def part2():
-    return render_template('part2.html')
+def video_quiz():
+    video_files = os.listdir('static/videos')  # Assuming your videos are stored in 'static/videos'
+    videos = ['videos/' + file for file in video_files if file.endswith('.mp4')]
+    return render_template('video_quiz.html', videos=videos)
+
+
 if __name__ == '__main__':
    app.run(debug = True)

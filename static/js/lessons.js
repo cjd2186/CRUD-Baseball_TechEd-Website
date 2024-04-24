@@ -1,3 +1,4 @@
+// lessons.js
 function goToPage(path){
     window.location.href = window.location.origin + path;
 };

@@ -1,3 +1,4 @@
+// quizzes.js
 $(document).ready(function() {
     // Event listener for form submission
     $("#see-it-here").hide();

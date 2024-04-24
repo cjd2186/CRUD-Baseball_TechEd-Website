@@ -1,3 +1,4 @@
+// layout.js
 function navigateToEndpoint() {
     var selectElement = document.getElementById('endpoints');
     var value = selectElement.value;
