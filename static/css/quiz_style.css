@@ -1,0 +1,72 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif; /* Ensures a clean, modern font is used */
+    background-color: #f4f4f4; /* Light grey background for soft design */
+    color: #333; /* Dark grey color for text for better readability */
+    margin: 20px;
+}
+
+/* Container styling */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds a subtle shadow around the container */
+    max-width: 800px; /* Restricts maximum width of the container */
+    margin: auto; /* Centers the container horizontally */
+}
+
+/* Header styles */
+h1 {
+    color: #0056b3; /* A shade of blue for a fresh look */
+    text-align: center; /* Centers the title */
+    margin-bottom: 20px; /* Adds space below the title */
+}
+
+/* Video styling */
+.video-question video {
+    width: 100%; /* Makes video responsive */
+    height: auto;
+    border-radius: 5px; /* Rounds the corners of the video player */
+    margin-bottom: 10px; /* Adds space below each video */
+}
+
+/* Form element styling */
+.video-question label {
+    font-weight: bold; /* Makes label text bold */
+    margin-top: 10px;
+    display: block; /* Ensures label appears on new line */
+}
+
+.pitch-select {
+    width: 100%; /* Makes select box full container width */
+    padding: 8px; /* Adds padding inside the select box */
+    border-radius: 4px; /* Slightly rounded corners for the select box */
+    border: 1px solid #ccc; /* Adds a light grey border to the select boxes */
+    margin-bottom: 20px; /* Adds space below each select box */
+}
+
+/* Button styling */
+button {
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+/* Result display styling */
+#quiz-result {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #28a745; /* Green color for results to indicate success */
+}
