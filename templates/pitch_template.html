@@ -1,5 +1,5 @@
 <!-- pitch_template.html -->
-{% include "layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/lessons.css') }}">
@@ -56,7 +56,7 @@
         <h3 class="black-text">
             Trajectory:
         </h3>
-        <img src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="300">
+        <img src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="190">
     </div>
 </div>
 
