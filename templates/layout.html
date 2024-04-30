@@ -28,15 +28,16 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Compass Dropdown -->
-            <label for="nav-menu">
-            </label>
-            <select name="nav-menu" id="endpoints" onchange="navigateToEndpoint()">
-                <div class="col-2 black-border spacer clickable">
-                {% for pitch in pitches %}
-                    <option value="{{url_for('pitch', pitch_name=pitch.path) }}">{{pitch.name}}</option>
-                {% endfor %}
+            <div class="hamburger-menu">
+                <button class="hamburger" onclick="toggleMenu()">☰</button>
+                <div class="menu" id="menu">
+                    <a href="/pitches/four-seam">Four-Seam</a>
+                    <a href="/pitches/two-seam">Two-Seam</a>
+                    <a href="/pitches/slider">Slider</a>
+                    <a href="/pitches/curveball">Curveball</a>
+                    <a href="/pitches/changeup">Changeup</a>
                 </div>
-            </select>
+            </div>
 
             <!-- Navbar Brand -->
             <a class="navbar-brand" href="/">Home</a>
