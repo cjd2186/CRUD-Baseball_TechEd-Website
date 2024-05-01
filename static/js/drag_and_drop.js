@@ -47,6 +47,8 @@ $(document).ready(function () {
             if (pitchId === correctPitch) {
                 // Correct drop
                 score++;
+                $('#score').text(score);  // Update the score display in the HTML
+
                 $this.addClass('match-correct');
                 feedbackText.addClass('text-success'); // Bold Green text for correct
                 var newSrc = $this.find('img').attr('src').replace('.png', '-right.png');
