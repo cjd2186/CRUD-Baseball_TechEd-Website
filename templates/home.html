@@ -14,37 +14,36 @@
 
 {% block content %}
     <div id="container-fluid">
-        <h1> GAS Station: Learn How to Identify Pitches in Baseball!</h1>
-        <h3>Welcome to the <span style="color: red;">GAS</span> Station, where we will teach you how to identify different pitches in baseball!</h3>
         <br>
+        <h1> Welcome to the <span style="color: red;">GAS</span> Station: Learn How to Identify Pitches in Baseball!</h1>
+
         <div>
             <div class="row">
-                <div class="col-12" id="home-img">
-                    <img src="https://static.gigapan.com/gigapans0/127025/images/127025-900x245.jpg" alt="MLB stadium" class="img-fluid"> 
+                <div class="col-1"></div>
+                <div class="col-10" id="home-img">
+                    <img src="https://live.staticflickr.com/65535/49715260142_42d375c145_3k.jpg" alt="MLB stadium" width="1200" class="stadium-img img-fluid"> 
                 </div>
+                <div class="col-1"></div>
             </div>
         </div>
+        
         <div class="row">
-            <div class="col-6" id="pitch-diagram">
+            <div class="col-1"></div>
+            <div class="col-5" id="pitch-diagram">
                 <br>
                 <h4>Learn Each Pitch:</h4>
+                <span class="clickable">
+                    <img onclick="goToPage('/lessons')" src="https://cdn.shopify.com/s/files/1/0013/5865/9642/files/001_grande.jpeg?v=1567748868" alt="Pitch Diagrams" class="home-img">
+                </span>
             </div>
-            <div class="col-6" id="quiz-diagram">
+            <div class="col-5" id="quiz-diagram">
                 <br>
                 <h4>Quiz your Knowledge:</h4>
-            </div>
-        <div class="row">
-            <div class="col-6">
                 <span class="clickable">
-                    <img onclick="goToPage('/lessons')" src="https://cdn.shopify.com/s/files/1/0013/5865/9642/files/001_grande.jpeg?v=1567748868" alt="Pitch Diagrams" class="img-fluid">
+                    <img onclick="goToPage('/quiz')" src="https://us.123rf.com/450wm/iconicpanda/iconicpanda2302/iconicpanda230210087/217811972-exam-test-vector-exam-related-filled-design-editable-stroke-icon.jpg?ver=6" alt="Quiz Clipart" class="home-img"> 
                 </span>
             </div>
-            <div class="col-3">
-                <span class="clickable">
-                    <img onclick="goToPage('/quiz')" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.R-3WzLxsMhH8LhQ3uwPlhwHaHd%26pid%3DApi&f=1&ipt=5a267e6045c1f019ba5144ef8d7bde84ba1aa55f8f4bad85ab883a155d4a45cf&ipo=images" alt="Quiz Clipart" class="img-fluid"> 
-                </span>
-            </div>
-        </div>
+            <div class="col-1"></div>
         </div>
     </div> 
 {% endblock %}

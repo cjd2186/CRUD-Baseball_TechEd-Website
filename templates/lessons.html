@@ -1,4 +1,7 @@
 <!-- lessons.html -->
+{% extends "layout.html" %}
+
+{% block title %}Lessons{% endblock %}
 
 {% block content %}
 <html>
@@ -9,13 +12,14 @@
 </head>
 <body>
     <div class="container-fluid">
+        <br>
         <h1 class="text-center"> Click a Pitch to Learn More About It!</h1>
         <div class="row">
             <div class="col-1"></div>
-            <div class= "col-4 blue-border spacer2">
+            <div class= "col-4 white-bk spacer2">
                 (Fastballs)
             </div>
-            <div class= "col-6 blue-border spacer3">
+            <div class= "col-6 white-bk spacer3">
                 (Breaking Balls)
             </div>
             <div class="col-1"></div>
@@ -26,7 +30,7 @@
             {% for pitch in pitches %}
             <div class="col-2 black-border spacer {{ pitch.color }}">{{ pitch.name }} <br><br> </div>
             {% endfor %}
-            <div class="col-1"></div>
+            <div class="col-1 "></div>
         </div>
 
         <!-- Images row -->
@@ -34,7 +38,7 @@
             <div class="col-1"></div>
             {% for pitch in pitches %}
             <div class="col-2 black-border spacer clickable">
-                <img onclick="goToPage('{{ url_for('pitch', pitch_name=pitch.path) }}')" src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="190">
+                <img onclick="goToPage('{{ url_for('pitch', pitch_name=pitch.path) }}')" src="{{ url_for('static', filename='images/' ~ pitch.name ~ '-right.png') }}" alt="{{ pitch.name }} Path" width="270" height="430">
             </div>
             {% endfor %}
             <div class="col-1"></div>

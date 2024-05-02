@@ -4,6 +4,10 @@
 
 .black-border{
     border: solid 2px black;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 25px;
+    text-align: center;
 }
 
 .spacer{
@@ -13,14 +17,18 @@
 }
 
 .spacer2{
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 0px;
     margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .spacer3{
-    margin-left: 40px;
+    margin-left: 50px;
     margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .red-base{
@@ -41,4 +49,12 @@
 
 .teal-base{
     background-color: #80A4AE;
+}
+
+.white-bk{
+    background-color: white;
+}
+
+.pitch-name{
+    top: 50%;
 }
