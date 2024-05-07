@@ -1,9 +1,17 @@
 .drag-pitch {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: move;
+  cursor: pointer;
+  user-select: none;
+  margin: 5px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative; /* Ensures z-index works properly */
+  z-index: 1; /* Normal state */
+}
+
+.drag-pitch.being-dragged {
+  z-index: 100; /* Higher z-index when dragged */
 }
 
 .droppable-pitch {
