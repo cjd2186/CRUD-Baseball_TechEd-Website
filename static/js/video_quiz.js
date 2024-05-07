@@ -29,7 +29,7 @@ $(document).ready(function() {
             answers.push($(this).val());
         });
 
-        var correctAnswers = ["Curveball", "Curveball", "Four-Seam", "Four-Seam", "Changeup", "Changeup", "Slider", "Slider", "Two-Seam", "Two-Seam"];
+        var correctAnswers = ["Changeup", "Changeup", "Curveball", "Curveball", "Four-Seam", "Four-Seam",  "Slider", "Slider", "Two-Seam", "Two-Seam"];
         var score = 0;
         for (var i = 0; i < answers.length; i++) {
             if (answers[i] === correctAnswers[i]) {
