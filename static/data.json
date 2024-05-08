@@ -47,7 +47,7 @@
             "color": "teal-base",
             "path": "changeup",
             "speed": "70-85 mph",
-            "movement": "Moves slower that a fastball, with a drop at the end",
+            "movement": "Moves slower than a fastball, with a drop at the end",
             "short_info": "Called fade movement"
         }
     }
