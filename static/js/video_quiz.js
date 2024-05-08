@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let currentQuestion = 0;
     const totalQuestions = $('.video-question').length;
-    const correctAnswers = ["Curveball", "Curveball", "Four-Seam", "Four-Seam", "Changeup", "Changeup", "Slider", "Slider", "Two-Seam", "Two-Seam"];
+    const correctAnswers = ["Curveball", "Curveball", "Two-Seam", "Changeup", "Two-Seam", "Changeup", "Slider", "Slider", "Four-Seam", "Four-Seam"];
     let score = 0;
     let answeredCorrectly = Array(totalQuestions).fill(false);  // Tracking correct answers
 
