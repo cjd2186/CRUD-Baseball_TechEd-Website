@@ -9,6 +9,11 @@
   position: relative; /* Ensures z-index works properly */
   z-index: 1; /* Normal state */
 }
+h1 {
+  color: #0056b3; /* A shade of blue for a fresh look */
+  text-align: center; /* Centers the title */
+  margin-bottom: 20px; /* Adds space below the title */
+}
 
 .drag-pitch.being-dragged {
   z-index: 100; /* Higher z-index when dragged */
@@ -51,7 +56,14 @@
       width: 20%; /* 5 boxes in a row */
     }
   }
-  
+  .container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds a subtle shadow around the container */
+    max-width: 800px; /* Restricts maximum width of the container */
+    margin: auto; /* Centers the container horizontally */
+}
   /* Draggable pitch name styles */
   .drag-pitch {
     cursor: pointer;
