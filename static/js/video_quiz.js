@@ -1,9 +1,24 @@
 $(document).ready(function() {
     let currentQuestion = 0;
     const totalQuestions = $('.video-question').length;
-    $('.video-question').eq(currentQuestion).show();
+    const correctAnswers = ["Curveball", "Curveball", "Four-Seam", "Four-Seam", "Changeup", "Changeup", "Slider", "Slider", "Two-Seam", "Two-Seam"];
+    let score = 0;
+    let answeredCorrectly = Array(totalQuestions).fill(false);  // Tracking correct answers
 
+    $('.video-question').eq(currentQuestion).show();
     updateNavigationButtons();
+
+    window.checkAnswer = function(selector, index) {
+        let selectedValue = $(selector).val();
+        let feedbackDiv = $(selector).next('.feedback');
+        if (selectedValue === correctAnswers[index]) {
+            feedbackDiv.text('Correct!').css('color', 'green');
+            answeredCorrectly[index] = true;
+        } else {
+            feedbackDiv.text('Incorrect.').css('color', 'red');
+            answeredCorrectly[index] = false;
+        }
+    };
 
     window.prevQuestion = function() {
         if (currentQuestion > 0) {
@@ -24,20 +39,8 @@ $(document).ready(function() {
     };
 
     window.submitQuiz = function() {
-        var answers = [];
-        $('.pitch-select').each(function() {
-            answers.push($(this).val());
-        });
-
-        var correctAnswers = ["Changeup", "Changeup", "Curveball", "Curveball", "Four-Seam", "Four-Seam",  "Slider", "Slider", "Two-Seam", "Two-Seam"];
-        var score = 0;
-        for (var i = 0; i < answers.length; i++) {
-            if (answers[i] === correctAnswers[i]) {
-                score++;
-            }
-        }
-
-        $('#quiz-result').html('<h3>Your Score: ' + score + ' out of ' + correctAnswers.length + '</h3>');
+        score = answeredCorrectly.filter(isCorrect => isCorrect).length;
+        $('#quiz-result').html(`<h3>Your Score: ${score} out of ${totalQuestions}</h3>`);
         $('.video-question').hide();
         $('#prevBtn').hide();
         $('#nextBtn').hide();
@@ -48,5 +51,6 @@ $(document).ready(function() {
         $('#prevBtn').toggle(currentQuestion > 0);
         $('#nextBtn').toggle(currentQuestion < totalQuestions - 1);
         $('#submitBtn').toggle(currentQuestion === totalQuestions - 1);
+        $('#currentQuestionNumber').text(currentQuestion + 1);
     }
 });
